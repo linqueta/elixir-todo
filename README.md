@@ -17,7 +17,7 @@ Functions:
 - Exit
 
 Usage:
-```shell
+```
 ▶ iex -S mix
 Erlang/OTP 22 [erts-10.6.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
 
