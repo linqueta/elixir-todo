@@ -16,10 +16,17 @@ defmodule Console do
 
   def list_options do
     IO.puts("\nWhat do you wanna do?")
-    IO.puts("l - List items")
+    IO.puts("l - List tasks")
     IO.puts("i - Insert a task")
     IO.puts("s - Show a task")
     IO.puts("r - Reset repository")
+    IO.puts("e - Exit")
+  end
+
+  def show_options do
+    IO.puts("\nWhat do you wanna do?")
+    IO.puts("l - List tasks")
+    IO.puts("u - Update the task")
     IO.puts("e - Exit")
   end
 
@@ -27,6 +34,14 @@ defmodule Console do
     option = IO.gets("(l|i|s|r|e): ")
              |> String.trim
     unless Enum.member?(["l", "i", "s", "r", "e"], option), do: raise "Invalid option"
+
+    option
+  end
+
+  def gets_show_option do
+    option = IO.gets("(l|u|e): ")
+             |> String.trim
+    unless Enum.member?(["l", "u", "e"], option), do: raise "Invalid option"
 
     option
   end
@@ -68,7 +83,7 @@ defmodule Console do
 
   defp header_show(size) do
     line(size + 21)
-    prefix_length = Kernel.trunc(Float.floor((size-3)/2))
+    prefix_length = Kernel.trunc(Float.floor((size - 3) / 2))
     suffix_length = size - 2 - prefix_length
     prefix = String.duplicate(" ", prefix_length)
     suffix = String.duplicate(" ", suffix_length)
