@@ -17,17 +17,25 @@ defmodule Console do
   def list_options do
     IO.puts("\nWhat do you wanna do?")
     IO.puts("l - List items")
-    IO.puts("s - Show an item")
+    IO.puts("i - Insert a task")
+    IO.puts("s - Show a task")
     IO.puts("r - Reset repository")
     IO.puts("e - Exit")
   end
 
   def gets_list_option do
-    option = IO.gets("(l|s|r|e): ")
+    option = IO.gets("(l|i|s|r|e): ")
              |> String.trim
-    unless Enum.member?(["l", "s", "r", "e"], option), do: raise "Invalid option"
+    unless Enum.member?(["l", "i", "s", "r", "e"], option), do: raise "Invalid option"
 
     option
+  end
+
+  def form do
+    %{
+      title: String.trim(IO.gets("title: ")),
+      description: String.trim(IO.gets("description: ")),
+    }
   end
 
   def show(item) do
@@ -43,19 +51,19 @@ defmodule Console do
 
   defp prepare(item) do
     %{item |
-        title: truncate(item.title),
-        description: truncate(item.description)
+        title: truncate(item.title, 15),
+        description: truncate(item.description, 30)
       }
   end
 
   defp list_line(item) do
-    "| #{String.pad_trailing(item.id, 36)} | #{String.pad_trailing(item.title, 15)} | #{String.pad_trailing(item.description, 15)} |"
+    "| #{String.pad_trailing(item.id, 36)} | #{String.pad_trailing(item.title, 15)} | #{String.pad_trailing(item.description, 30)} |"
   end
 
   defp header_list do
-    line(74)
-    IO.puts("|                  id                  |      title      |   description   |")
-    line(74)
+    line(89)
+    IO.puts("|                  id                  |      title      |           description          |")
+    line(89)
   end
 
   defp header_show(size) do
@@ -83,12 +91,12 @@ defmodule Console do
   end
 
   defp footer_list do
-    line(74)
+    line(89)
   end
 
-  defp truncate(text) do
+  defp truncate(text, size) do
     cond do
-      String.length(text || "") > 15 -> "#{String.slice(text, 0, 12)}..."
+      String.length(text || "") > size -> "#{String.slice(text, 0, size - 3)}..."
       text == nil -> ""
       true -> text
     end

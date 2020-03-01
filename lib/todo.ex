@@ -16,6 +16,12 @@ defmodule Todo do
         Console.list_options
         option = Console.gets_list_option
         run(option)
+      "i" ->
+        IO.puts("\nNew item:")
+        attrs = Console.form
+        Map.merge(%Todo.Task{}, attrs)
+        |> Repository.insert
+        run("l")
       "s" ->
         task = IO.gets("\nWhat is the id?\n id: ")
              |> String.trim
@@ -23,6 +29,7 @@ defmodule Todo do
 
         unless task, do: raise "Invalid id"
         Console.show(task)
+        run("l")
       "r" ->
         Repository.drop
         run("l")
