@@ -3,8 +3,8 @@ defmodule RepositoryTest do
   doctest Repository
 
   setup do
-    File.rm(Repository.file_name)
-    File.touch(Repository.file_name)
+    Repository.drop
+    Repository.create
   end
 
   test "insert/1 creates an item" do

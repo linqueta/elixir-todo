@@ -45,6 +45,14 @@ defmodule Repository do
     end
   end
 
+  def create do
+    File.touch(file_name())
+  end
+
+  def drop do
+    File.rm(file_name())
+  end
+
   def file_name, do: "todo-repository"
 
   defp save(content) do
