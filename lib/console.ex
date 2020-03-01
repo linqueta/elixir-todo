@@ -6,11 +6,12 @@ defmodule Console do
   def list do
     IO.puts("")
     header_list()
-    Repository.list
+    list = Repository.list
+    list
     |> Enum.map(fn item -> prepare(item) end)
     |> Enum.map(fn item -> list_line(item) end)
     |> Enum.each(fn item -> IO.puts(item) end)
-    footer_list()
+    if Enum.any?(list), do: footer_list()
   end
 
   def list_options do
@@ -37,7 +38,7 @@ defmodule Console do
 
     header_show(size)
     Enum.each(map, fn {key, value} -> draw_column(key, value, size) end)
-    footer_show(size)
+    if Enum.any?(map), do: footer_show(size)
   end
 
   defp prepare(item) do
