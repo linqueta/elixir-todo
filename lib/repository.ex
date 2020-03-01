@@ -45,6 +45,11 @@ defmodule Repository do
     end
   end
 
+  def find(id) do
+    list
+    |> Enum.find(&(&1.id == id))
+  end
+
   def create do
     File.touch(file_name())
   end

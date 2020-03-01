@@ -4,6 +4,7 @@ defmodule Console do
   """
 
   def list do
+    IO.puts("")
     header_list()
     Repository.list
     |> Enum.map(fn item -> prepare(item) end)
@@ -12,7 +13,24 @@ defmodule Console do
     footer_list()
   end
 
+  def list_options do
+    IO.puts("\nWhat do you wanna do?")
+    IO.puts("l - List items")
+    IO.puts("s - Show an item")
+    IO.puts("r - Reset repository")
+    IO.puts("e - Exit")
+  end
+
+  def gets_list_option do
+    option = IO.gets("(l|s|r|e): ")
+             |> String.trim
+    unless Enum.member?(["l", "s", "r", "e"], option), do: raise "Invalid option"
+
+    option
+  end
+
   def show(item) do
+    IO.puts("")
     map = Map.from_struct(item)
     size = Enum.map(map, fn {_k, value} -> String.length(value || "") end)
            |> Enum.max
@@ -68,6 +86,10 @@ defmodule Console do
   end
 
   defp truncate(text) do
-    "#{String.slice(text, 0, 12)}..."
+    cond do
+      String.length(text || "") > 15 -> "#{String.slice(text, 0, 12)}..."
+      text == nil -> ""
+      true -> text
+    end
   end
 end
