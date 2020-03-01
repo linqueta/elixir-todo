@@ -1,21 +1,59 @@
 # Todo
 
-**TODO: Add description**
+I've used this project to learn some things like IO, Enum, List, Struct, Test, Doctest and others about Elixir.
 
-## Installation
+To use, follow these steps:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `todo` to your list of dependencies in `mix.exs`:
+1. `mix deps.get`
+2. `iex -S mix`
+2. `Todo.start()`
 
-```elixir
-def deps do
-  [
-    {:todo, "~> 0.1.0"}
-  ]
-end
+Functions:
+- List tasks
+- Show a task
+- Insert a task
+- Update a task
+- Reset repository
+- Exit
+
+Example:
+```shell
+▶ iex -S mix
+Erlang/OTP 22 [erts-10.6.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
+
+Interactive Elixir (1.10.1) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> Todo.start
+Starting...
+
+ -----------------------------------------------------------------------------------------
+|                  id                  |      title      |           description          |
+ -----------------------------------------------------------------------------------------
+| 49bd8b00-5bf8-11ea-89a2-8c8590985385 | Edit products   | Must be able to edit products  |
+| 696b726e-5bf8-11ea-9445-8c8590985385 | Edit availab... | The management want to edit... |
+ -----------------------------------------------------------------------------------------
+
+What do you wanna do?
+l - List tasks
+i - Insert a task
+s - Show a task
+r - Reset repository
+e - Exit
+(l|i|s|r|e): s
+
+What is the id?
+ id: 696b726e-5bf8-11ea-9445-8c8590985385
+
+ ----------------------------------------------------------------------------------
+|      field      |                             value                              |
+ ----------------------------------------------------------------------------------
+| description     | The management want to edit available product items in a page  |
+| id              | 696b726e-5bf8-11ea-9445-8c8590985385                           |
+| title           | Edit available product items                                   |
+ ----------------------------------------------------------------------------------
+
+What do you wanna do?
+l - List tasks
+u - Update this task
+e - Exit
+(l|u|e):
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/todo](https://hexdocs.pm/todo).
-

@@ -26,7 +26,7 @@ defmodule Console do
   def show_options do
     IO.puts("\nWhat do you wanna do?")
     IO.puts("l - List tasks")
-    IO.puts("u - Update the task")
+    IO.puts("u - Update this task")
     IO.puts("e - Exit")
   end
 
