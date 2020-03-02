@@ -30,7 +30,7 @@ Starting...
 |                  id                  |      title      |           description          |
  -----------------------------------------------------------------------------------------
 | 49bd8b00-5bf8-11ea-89a2-8c8590985385 | Edit products   | Must be able to edit products  |
-| 696b726e-5bf8-11ea-9445-8c8590985385 | Edit availab... | The management want to edit... |
+| 696b726e-5bf8-11ea-9445-8c8590985385 | Edit availab... | The manager want to edit av... |
  -----------------------------------------------------------------------------------------
 
 What do you wanna do?
@@ -44,13 +44,13 @@ e - Exit
 What is the id?
  id: 696b726e-5bf8-11ea-9445-8c8590985385
 
- ----------------------------------------------------------------------------------
-|      field      |                             value                              |
- ----------------------------------------------------------------------------------
-| description     | The management want to edit available product items in a page  |
-| id              | 696b726e-5bf8-11ea-9445-8c8590985385                           |
-| title           | Edit available product items                                   |
- ----------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------
+|      field      |                             value                          |
+ ------------------------------------------------------------------------------
+| description     | The manager want to edit available product items in a page |
+| id              | 696b726e-5bf8-11ea-9445-8c8590985385                       |
+| title           | Edit available product items                               |
+ ------------------------------------------------------------------------------
 
 What do you wanna do?
 l - List tasks
@@ -59,14 +59,14 @@ e - Exit
 (l|u|e): u
 
 Updating item:
-title: Availabel product item
+title: Available product item
 description: None
 
  -----------------------------------------------------------------------------------------
 |                  id                  |      title      |           description          |
  -----------------------------------------------------------------------------------------
 | 49bd8b00-5bf8-11ea-89a2-8c8590985385 | Edit products   | Must be able to edit products  |
-| 696b726e-5bf8-11ea-9445-8c8590985385 | Availabel pr... | None                           |
+| 696b726e-5bf8-11ea-9445-8c8590985385 | Available pr... | None                           |
  -----------------------------------------------------------------------------------------
 
 What do you wanna do?
@@ -85,7 +85,7 @@ description: I dont wanna write the description
 |                  id                  |      title      |           description          |
  -----------------------------------------------------------------------------------------
 | 49bd8b00-5bf8-11ea-89a2-8c8590985385 | Edit products   | Must be able to edit products  |
-| 696b726e-5bf8-11ea-9445-8c8590985385 | Availabel pr... | None                           |
+| 696b726e-5bf8-11ea-9445-8c8590985385 | Available pr... | None                           |
 | 13d47a02-5bf9-11ea-b805-8c8590985385 | Just a new task | I dont wanna write the desc... |
  -----------------------------------------------------------------------------------------
 
